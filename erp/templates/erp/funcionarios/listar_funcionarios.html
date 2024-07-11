@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Funcionários</title>
+</head>
+<body>
+    <h1>Listar Funcionários</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>CPF</th>
+                <th>E-mail Funcional</th>
+                <th>Remuneração</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for func in funcionarios %}
+                <tr>
+                    <td>{{ func.id }}</td>
+                    <td>{{ func.nome }}</td>
+                    <td>{{ func.sobrenome }}</td>
+                    <td>{{ func.cpf }}</td>
+                    <td>{{ func.email_funcional }}</td>
+                    <td>{{ func.remuneracao }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
