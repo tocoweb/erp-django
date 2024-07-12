@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Deleção de Venda - ERP</title>
+</head>
+<body>
+    {% if venda %}
+        <h1>Deleção de Venda: #{{ venda }}</h1>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <p>Você confirma a deleção da venda do funcionário <b>{{ venda.funcionario }}</b> que contém o produto <b>{{ venda.produto }}</b> ?</p>
+
+            <button type="submit">Confirmar Deleção</button>
+            <a href="{% url 'erp:listar_funcionarios' %}">Voltar </a>
+        </form>
+    {% else %}
+            <p>Venda com o (#{{ view.kwargs.pk }}) não existe.</p>
+    {% endif %}
+
+</body>
+</html>

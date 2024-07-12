@@ -14,10 +14,9 @@
             <p>Você confirma a deleção do produto "{{ produto.nome }}" (id = {{ produto.id }})?</p>
 
             <button type="submit">Confirmar Deleção</button>
+        </form>
     {% else %}
             <p>Produto com o (id = {{ view.kwargs.pk }}) não existe.</p>
     {% endif %}
-    </form>
-
 </body>
 </html>

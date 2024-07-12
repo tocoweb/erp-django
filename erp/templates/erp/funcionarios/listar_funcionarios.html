@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>Listar Funcionários</h1>
-
+    {% if qt_func > 0 %}
     <table>
         <thead>
             <tr>
@@ -16,6 +16,7 @@
                 <th>CPF</th>
                 <th>E-mail Funcional</th>
                 <th>Remuneração</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -27,9 +28,22 @@
                     <td>{{ func.cpf }}</td>
                     <td>{{ func.email_funcional }}</td>
                     <td>{{ func.remuneracao }}</td>
+                    <td>
+                        <a href="{% url 'erp:detalhe_funcionario' pk=func.id %}">Detalhe</a>
+                        |
+                        <a href="{% url 'erp:atualizar_funcionario' pk=func.id %}">Editar</a>
+                        |
+                        <a href="{% url 'erp:deletar_funcionario' pk=func.id %}">Deletar</a>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
+        <p><a href="{% url 'erp:criar_funcionario' %}">Cadastrar</a></p>
+        <a href="{% url 'erp:home' %}">Voltar </a>
     </table>
+    {% else %}
+        <p>Não há funcionário cadastrado.</p>
+        <p><a href="{% url 'erp:criar_funcionario' %}">Cadastrar</a></p>
+    {% endif %}
 </body>
 </html>

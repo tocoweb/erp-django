@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Deleção de Funcionário</title>
+</head>
+<body>
+    {% if funcionario %}
+        <form method="post">
+            {% csrf_token %}
+
+            <p>Você confirma a deleção do funcionário <b>{{ funcionario }}</b> ?</p>
+
+            <button type="submit">Confirmar Deleção</button>
+            <a href="{% url 'erp:listar_funcionarios' %}">Voltar </a>
+        </form>
+    {% else %}
+        <p>Não existe Funcionário com o (#{{ view.kwargs.pk }}).</p>
+    {% endif %}
+</body>
+</html>
